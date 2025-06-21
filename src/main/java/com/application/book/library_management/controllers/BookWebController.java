@@ -34,7 +34,7 @@ public class BookWebController {
 
     @PostMapping("/save")
     public String saveBook(@ModelAttribute BookDto bookDto) {
-        // Set available copies equal to total copies for new books
+        
         bookDto.setAvailableCopies(bookDto.getTotalCopies());
         bookService.saveBook(bookDto);
         return "redirect:/books";
@@ -49,7 +49,7 @@ public class BookWebController {
 
     @PostMapping("/edit/{id}")
     public String updateBook(@PathVariable Long id, @ModelAttribute BookDto bookDto) {
-        // Preserve the original available copies count
+        
 
         bookService.updateBook(id, bookDto);
         return "redirect:/books";

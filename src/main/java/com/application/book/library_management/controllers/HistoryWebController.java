@@ -63,7 +63,7 @@ public String borrowBook(@RequestParam Long studentId,
 
 @GetMapping("/return/{id}")
 public String returnBook(@PathVariable Long id) {
-    // Call your service method to mark the book as returned
+    
     historyService.returnBook(id);
     return "redirect:/history";
 }

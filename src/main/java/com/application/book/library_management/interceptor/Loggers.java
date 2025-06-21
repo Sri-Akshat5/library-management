@@ -2,15 +2,15 @@ package com.application.book.library_management.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.HandlerInterceptor;
 
-public class Loggers {
+public class Loggers implements HandlerInterceptor {
     private final Logger logger;
 
     public Loggers(Class<?> clazz) {
         this.logger = LoggerFactory.getLogger(clazz);
     }
 
-    // Standard logging methods
     public void info(String message, Object... args) {
         logger.info(message, args);
     }
@@ -31,7 +31,6 @@ public class Loggers {
         logger.trace(message, args);
     }
 
-    // Domain-specific logging methods
     public void logBookOperation(String operation, Long bookId, String additionalInfo) {
         logger.info("[BOOK {}] ID: {} - {}", operation, bookId, additionalInfo);
     }

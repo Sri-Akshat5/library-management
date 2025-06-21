@@ -26,13 +26,13 @@ public class HistoryRestController {
     @Autowired
     private BookService bookService;
 
-    // Get all history records
+    
     @GetMapping
     public ResponseEntity<List<HistoryDto>> getAllHistory() {
         return ResponseEntity.ok(historyService.getAllHistory());
     }
 
-    // Get all students and books to populate a borrow form (optional API helper)
+    
     @GetMapping("/borrow/form-data")
     public ResponseEntity<?> getBorrowFormData() {
         return ResponseEntity.ok(
@@ -43,7 +43,7 @@ public class HistoryRestController {
         );
     }
 
-    // Borrow a book
+    
     @PostMapping("/borrow")
     public ResponseEntity<?> borrowBook(@RequestParam Long studentId, @RequestParam Long bookId) {
         try {
@@ -54,7 +54,7 @@ public class HistoryRestController {
         }
     }
 
-    // Return a book
+    
     @PutMapping("/return/{id}")
     public ResponseEntity<?> returnBook(@PathVariable Long id) {
         try {
@@ -65,7 +65,7 @@ public class HistoryRestController {
         }
     }
 
-    // Search history by keyword (e.g., student name)
+    
     @GetMapping("/search")
     public ResponseEntity<List<HistoryDto>> searchHistory(@RequestParam("keyword") String keyword) {
         return ResponseEntity.ok(historyService.searchHistoryByName(keyword));

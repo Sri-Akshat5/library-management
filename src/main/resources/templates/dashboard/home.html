@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-gray-100">
-  <!-- Layout content injection -->
+  
   <div th:replace="layout :: layout(~{::section})">
     <section th:fragment="content">
       <div class="container mx-auto px-4 py-8">
-        <!-- Header Section -->
+        
         <div class="flex items-center mb-8">
           <div class="bg-indigo-600 p-3 rounded-lg shadow-md">
             <i class="fas fa-chart-line text-white text-2xl"></i>
@@ -20,7 +20,7 @@
           <h2 class="ml-4 text-3xl font-bold text-gray-800">Dashboard</h2>
         </div>
 
-        <!-- Statistics Grid -->
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white shadow-lg rounded-xl p-6 text-center border border-gray-200 hover:shadow-xl transition">
             <p class="text-3xl font-semibold text-blue-600" th:text="${bookCount}">0</p>
