@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title th:text="${title}">Library</title>
+
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  
+ 
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+
+
+<div th:fragment="layout(content)">
+  
+  
+  <nav class="bg-blue-700 text-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-book text-white text-xl"></i>
+        <h1 class="text-xl font-bold">Library System</h1>
+      </div>
+      <div class="mt-2 md:mt-0 space-x-4 text-sm font-medium">
+        <a href="/" class="hover:underline hover:text-blue-200 transition">Dashboard</a>
+        <a href="/books" class="hover:underline hover:text-blue-200 transition">Books</a>
+        <a href="/students" class="hover:underline hover:text-blue-200 transition">Students</a>
+        <a href="/history" class="hover:underline hover:text-blue-200 transition">Borrow</a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <main class="container mx-auto px-4 py-8">
+    <div th:replace="${content}"></div>
+  </main>
+</div>
+
+</body>
+</html>
