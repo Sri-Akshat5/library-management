@@ -3,17 +3,21 @@ package com.application.book.library_management.config;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.application.book.library_management.interceptor.Loggers;
+
+
+@PropertySource("file:./config/application.properties ")
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
     
     @Bean
     public Loggers loggers() {
-        // Use WebConfig.class as the logger class
+
         return new Loggers(WebConfig.class);
     }
 

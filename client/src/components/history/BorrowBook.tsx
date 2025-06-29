@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getBorrowFormData, borrowBook } from '../../api/historyApi';
+import { borrowBook, getBorrowFormData } from '../../api/historyApi';
 import type { BorrowFormData, BorrowRequest } from '../../types/history';
 
 const BorrowBook: React.FC = () => {
@@ -49,7 +49,9 @@ const BorrowBook: React.FC = () => {
           <label className="block text-white font-medium mb-2">Select Student</label>
           <select
             name="studentId"
-            value={request.studentId}
+
+            
+            
             onChange={handleChange}
             required
             className="w-full p-2 border rounded-md  bg-zinc-700 text-white border-zinc-900"
@@ -69,12 +71,12 @@ const BorrowBook: React.FC = () => {
           <label className="block text-white font-medium mb-2">Select Book</label>
           <select
             name="bookId"
-            value={request.bookId}
+            
             onChange={handleChange}
             required
             className="w-full p-2 border  rounded-md focus:ring-2 bg-zinc-700 text-white border-zinc-900"
           >
-            <option value="" disabled selected>
+            <option value="" disabled >
               Choose a book
             </option>
             {formData.books.map((b) => (

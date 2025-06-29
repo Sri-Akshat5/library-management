@@ -4,11 +4,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 public class Loggers implements HandlerInterceptor {
     private final Logger logger;
 
     public Loggers(Class<?> clazz) {
         this.logger = LoggerFactory.getLogger(clazz);
+    }
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        logger.info("[REQUEST] Method: {} URI: {} From: {}", 
+                    request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
+        return true; 
     }
 
     public void info(String message, Object... args) {
